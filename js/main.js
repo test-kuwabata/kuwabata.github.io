@@ -2,15 +2,6 @@
 // ペッパーリモコン
 //
 
-
-
-function stopShowing() {
-   clearInterval( PassageID ); // タイマーのクリア
-}
-
-
-
-
 function _base64ToArrayBuffer(base64) {
     var binary_string =  window.atob(base64);
     var len = binary_string.length;
@@ -158,7 +149,7 @@ $(function(){
                       pixels[i*4+3] = 255;
                   }
                   ctx.putImageData(imageData, 0, 0);
-                  imageData = null;
+                  //imageData = null;
               });
             }
         }
