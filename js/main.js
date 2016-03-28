@@ -136,7 +136,7 @@ $(function(){
         {
             if(self.cameraIns)
             {
-                while(true){
+                
                 self.cameraIns.captureImage(function(w,h,data){
                     // 受信したRAWデータをcanvasに
                     var c = resultCanvas = document.getElementById('capImg');
@@ -151,7 +151,7 @@ $(function(){
                     }
                     ctx.putImageData(imageData, 0, 0);                    
                 });
-                }
+                
             }
         }
 
