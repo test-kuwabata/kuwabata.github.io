@@ -1,8 +1,3 @@
-<script type="text/javascript">
-function StartCamera(){
-  setInterval('$root.cap()',5000);
-}
-</script>
 <html>
 <head>
   <title>ペッパーりもこん</title>
@@ -63,7 +58,7 @@ function StartCamera(){
         </div>
         <div>
           <canvas class="capBox" id="capImg"></canvas>
-          <button data-bind="click: $root.StartCamera()"キャプ</button>
+          <button data-bind="click: $root.cap()"キャプ</button>
         </div>
         <div data-bind="template: { name:'controlPadTmpl', data:$root.ctrlObjHead }"></div>
         <div data-bind="template: { name:'controlPadTmpl', data:$root.ctrlObjBody }"></div>
