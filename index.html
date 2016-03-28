@@ -58,7 +58,7 @@
         </div>
         <div>
           <canvas class="capBox" id="capImg"></canvas>
-          <button data-bind="click: $root.cap()">キャプ</button>
+          <button data-bind="setInterval('click: $root.c'ap()',1000)">キャプ</button>
         </div>
         <div data-bind="template: { name:'controlPadTmpl', data:$root.ctrlObjHead }"></div>
         <div data-bind="template: { name:'controlPadTmpl', data:$root.ctrlObjBody }"></div>
