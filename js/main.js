@@ -2,6 +2,18 @@
 // ペッパーリモコン
 //
 
+function startShowing() {
+   PassSec = 0; // カウンタのリセット
+   PassageID = setInterval('showPassage()',1000); // タイマーをセット(1000ms間隔)
+}
+
+function stopShowing() {
+   clearInterval( PassageID ); // タイマーのクリア
+}
+
+
+
+
 function _base64ToArrayBuffer(base64) {
     var binary_string =  window.atob(base64);
     var len = binary_string.length;
@@ -136,21 +148,23 @@ $(function(){
         {
             if(self.cameraIns)
             {
-                self.cameraIns.captureImage(function(w,h,data){
-                    // 受信したRAWデータをcanvasに
-                    var c = resultCanvas = document.getElementById('capImg');
-                    var ctx = c.getContext('2d');
-                    var imageData = ctx.createImageData(w, h);
-                    var pixels = imageData.data;
-                    for (var i=0; i < pixels.length/4; i++) {
-                        pixels[i*4+0] = data[i*3+0];
-                        pixels[i*4+1] = data[i*3+1];
-                        pixels[i*4+2] = data[i*3+2];
-                        pixels[i*4+3] = 255;
-                    }
-                    ctx.putImageData(imageData, 0, 0);
-                    imageData = null;
-                });
+                function showPassage() {
+                    self.cameraIns.captureImage(function(w,h,data){
+                        // 受信したRAWデータをcanvasに
+                        var c = resultCanvas = document.getElementById('capImg');
+                        var ctx = c.getContext('2d');
+                        var imageData = ctx.createImageData(w, h);
+                        var pixels = imageData.data;
+                        for (var i=0; i < pixels.length/4; i++) {
+                            pixels[i*4+0] = data[i*3+0];
+                            pixels[i*4+1] = data[i*3+1];
+                            pixels[i*4+2] = data[i*3+2];
+                            pixels[i*4+3] = 255;
+                        }
+                        ctx.putImageData(imageData, 0, 0);
+                        imageData = null;
+                    });
+                }
             }
         }
 
